@@ -5,3 +5,6 @@ npm init
 
 truffle compile
 truffle migrate --reset
+
+truffle console
+await Coin.deployed()
