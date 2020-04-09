@@ -1,0 +1,22 @@
+{
+  "name": "etl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "dev": "lite-server",
+    "test": "echo \"Error: no test specified\" && sexit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "bootstrap": "^4.4.1",
+    "lite-server": "^2.5.4",
+    "nodemon": "^2.0.2",
+    "truffle": "^5.1.20",
+    "truffle-contract": "^4.0.31"
+  }
+}
