@@ -59,9 +59,10 @@ def wins():
     return c.functions.consecutiveWins().call()
 print(wins())
 
-def dev_get_ith_last_block_and_hash(v=0):
-    block_number = w3.eth.blockNumber + v
-    block_hash = w3.eth.getBlock(w3.eth.blockNumber).hash.hex()
+def dev_get_ith_last_block_and_hash(block_number=0):
+    if block_number <= 0:
+        block_number = w3.eth.blockNumber + block_number
+    block_hash = w3.eth.getBlock(block_number).hash.hex()
     return block_number, block_hash, int(block_hash, 0)
 
 def get_last_block_hash_prediction():
