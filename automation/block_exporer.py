@@ -6,7 +6,7 @@ import datetime as dt
 # await web3.eth.getBlockNumber((e,r)=> web3.eth.getBlock(r, (e,r) => console.log(parseInt(r.hash)/57896044618658097711785492504343953926634992332820282019728792003956564819968)))
 provider_ropsten = "https://ropsten.infura.io/v3/5f65182f06a14f5182a2e9af8d8fff33"
 provider_local = "http://127.0.0.1:7545"
-LOCAL=True
+LOCAL=False
 if LOCAL:
     provider = provider_local
 else:
