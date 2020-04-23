@@ -39,10 +39,11 @@ else:
     w3.eth.defaultAccount = a.address
 
 
-def flip(b):
+GAS_PRICE = '1000'#'0.0001' # gwei
+def flip(b, nonce=None):
     tx = c.functions.flip(b).buildTransaction({
-        'nonce': w3.eth.getTransactionCount(a.address), #, 'pending'
-        'gasPrice': w3.toWei('0.0001', 'gwei'),
+        'nonce': nonce or w3.eth.getTransactionCount(a.address), #, 'pending'
+        'gasPrice': w3.toWei(GAS_PRICE, 'gwei'),
         'gas': 100000
     })
 
@@ -81,6 +82,21 @@ def get_tx_info(tx_hash):
 def win_once():
     return flip(get_last_block_hash_prediction()>=1)
 
+def win_spam():
+    txs = []
+    decision = get_last_block_hash_prediction()>=1
+    nonce = w3.eth.getTransactionCount(a.address)
+    for i in range(10):
+        txs.append(flip(decision, nonce + i))
+    return txs
+
+def check_txs(txs):
+    for tx in txs:
+        try:
+            result = get_tx_info(tx)
+            print('Yes')
+        except:
+            print('No')
 
 RUN = False
 if RUN:
@@ -133,3 +149,18 @@ if RUN:
         
     
 
+
+
+# DEV
+# tx=win_once()
+# w=wins()
+# while w<=10:
+#     try:
+#         time.sleep(0.5)
+#         get_tx_info(tx)
+#         tx=win_once()
+#     except:
+#         print(w)
+#         w=wins()
+
+# print('Wins:', w)
