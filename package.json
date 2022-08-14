@@ -20,7 +20,7 @@
     "truffle-contract": "^4.0.31"
   },
   "dependencies": {
-    "@openzeppelin/contracts": "^3.0.0",
+    "@openzeppelin/contracts": "^4.7.2",
     "ethereumjs-tx": "^2.1.2",
     "moment": "^2.24.0",
     "solc": "^0.6.6",
